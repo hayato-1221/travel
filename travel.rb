@@ -1,8 +1,4 @@
 require "active_support/core_ext/numeric/conversions"
-okinawa_price = 10,000
-hokkaido_price = 20,000
-kyuusyuu_price = 15,000
-
 puts "旅行プランを選択してください"
 
 puts <<~TEXT
