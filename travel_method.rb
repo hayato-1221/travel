@@ -1,24 +1,26 @@
 require "active_support/core_ext/numeric/conversions"
+plans = [
+  { place: "沖縄", price: 10000},
+  { place: "北海道", price: 20000},
+  { place: "九州", price: 15000},
+]
+def travel_plan(plans)
 puts "旅行プランを選択してください"
 
-puts <<~TEXT
-1.沖縄旅行（¥10,000）
-2.北海道旅行（¥20,000）
-3.九州旅行（¥15,000）
 
-TEXT
 
+puts ""
 # プラン選択
 print "プランを選択 > "
-plan_num = gets.to_i
+plan = gets.to_i
 puts ""
-if plan_num == 1
+if plan == 1
   puts "沖縄旅行ですね、何人でいきますか？"
   price = 10000
-elsif plan_num == 2
+elsif plan == 2
   puts "北海道旅行ですね、何人でいきますか？"
   price = 20000
-elsif plan_num == 3
+elsif plan == 3
   puts "九州旅行ですね、何人でいきますか？"
   price = 15000
 else
@@ -28,17 +30,14 @@ puts ""
 
 # 人数選択
 print "人数を入力 > "
-people = gets.to_i
+peple = gets.to_i
 puts ""
-
-total_price = price * people
-
-# 5人以上の料金
-if people >= 5
-  puts "#{people}人以上なので10%割引となります"
+if peple >= 5
+  puts "#{peple}人以上なので10%割引となります"
   puts ""
-  puts "合計料金：¥#{(total_price * 0.9).floor.to_s(:delimited)}"
+  
+#合計料金
+  puts "合計料金：¥#{(price * peple * 0.9).floor.to_s(:delimited)}"
+else
+  puts "合計料金：¥#{(price * peple).floor.to_s(:delimited)}"
 end
-
-# 4人以下の料金
-puts "合計料金：¥#{total_price.to_s(:delimited)}"
