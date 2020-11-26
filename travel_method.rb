@@ -6,7 +6,9 @@ plans = [
 ]
 def travel_plan(plans)
 puts "旅行プランを選択してください"
-
+plans.each_with_index do |plans, i|
+  
+end
 
 
 puts ""
