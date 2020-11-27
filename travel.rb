@@ -31,14 +31,14 @@ print "人数を入力 > "
 people = gets.to_i
 puts ""
 
-total_price = (price * people).to_s(:delimited)
+total_price = price * people
 
 
 # 5人以上の料金
 if people >= 5
   puts "#{people}人以上なので10%割引となります"
   puts ""
-  toral_price = (total_price * 0.9).floor
+  total_price = (total_price * 0.9).floor
 end
 
-puts "合計料金：¥#{total_price}"
+puts "合計料金：¥#{total_price.to_s(:delimited)}"
