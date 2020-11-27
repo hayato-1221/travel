@@ -5,11 +5,10 @@ plans = [
   { place: "九州", price: 15000},
 ]
 def travel_plan(plans)
-puts "旅行プランを選択してください"
-plans.each_with_index do |plans, i|
-  
+  puts "旅行プランを選択してください"
+  plans.each_with_index(1) do |plan, i|
+    puts "#{i}.#{plan[:place]}旅行(¥#{plan[:price]}"
 end
-
 
 puts ""
 # プラン選択
