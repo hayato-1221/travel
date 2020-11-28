@@ -1,27 +1,31 @@
 require "active_support/core_ext/numeric/conversions"
+# 旅行プラン配列
 plans = [
   { place: "沖縄", price: 10000},
   { place: "北海道", price: 20000},
-  { place: "九州", price: 15000},
+  { place: "九州", price: 15000}
 ]
+
+# 旅行プラン提示
 def travel_plan(plans)
   puts "旅行プランを選択してください"
-  plans.each_with_index(1) do |plan, i|
-    puts "#{i}.#{plan[:place]}旅行(¥#{plan[:price]}"
+  plans.each.with_index(1) do |plan, i|
+    puts "#{i}.#{plan[:place]}旅行（¥#{plan[:price]}）"
+  end
 end
+travel_plan(plans)
 
-puts ""
 # プラン選択
 print "プランを選択 > "
-plan = gets.to_i
+plan_num = gets.to_i
 puts ""
-if plan == 1
+if plan_num == 1
   puts "沖縄旅行ですね、何人でいきますか？"
   price = 10000
-elsif plan == 2
+elsif plan_num == 2
   puts "北海道旅行ですね、何人でいきますか？"
   price = 20000
-elsif plan == 3
+elsif plan_num == 3
   puts "九州旅行ですね、何人でいきますか？"
   price = 15000
 else
@@ -31,14 +35,17 @@ puts ""
 
 # 人数選択
 print "人数を入力 > "
-peple = gets.to_i
+people = gets.to_i
 puts ""
-if peple >= 5
-  puts "#{peple}人以上なので10%割引となります"
+
+total_price = price * people
+
+
+# 5人以上の料金
+if people >= 5
+  puts "#{people}人以上なので10%割引となります"
   puts ""
-  
-#合計料金
-  puts "合計料金：¥#{(price * peple * 0.9).floor.to_s(:delimited)}"
-else
-  puts "合計料金：¥#{(price * peple).floor.to_s(:delimited)}"
+  total_price = (total_price * 0.9).floor
 end
+
+puts "合計料金：¥#{total_price.to_s(:delimited)}"
